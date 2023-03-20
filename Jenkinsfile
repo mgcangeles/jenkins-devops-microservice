@@ -1,16 +1,17 @@
 // SCRIPTED, Note: you can remove stage part and leave the echo statements
 pipeline {
 	// agent any
-	agent any {
+	agent {
 		 docker { 
-				image 'maven:3.9.1'
+				image 'node:13.8'
 			} 
 		 }
 	
 	stages {
 		stage ('Build') {
 			steps {
-				sh "mvn --version"
+				// sh 'mvn --version'
+				sh 'node --version'
 				echo "Build"
 			}
 		}
