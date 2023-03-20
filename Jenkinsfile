@@ -1,12 +1,6 @@
 // SCRIPTED, Note: you can remove stage part and leave the echo statements
 pipeline {
-	// agent any
-	agent {
-		 docker { 
-				image 'node:13.8'
-			} 
-		 }
-	
+	agent any
 	stages {
 		stage ('Build') {
 			steps {
