@@ -1,7 +1,7 @@
 // SCRIPTED, Note: you can remove stage part and leave the echo statements
 pipeline {
 	// agent any
-	agent { docker { image 'maven:3.6.3'} }
+	agent { docker { image 'maven:3.9.1'} }
 	
 	stages {
 		stage ('Build') {
