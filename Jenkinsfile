@@ -11,19 +11,7 @@ pipeline {
 		mavenHome = tool 'myMaven'
 		PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
 	}
-	include:
-	- remote: https://gitlab.com/gitlab-org/gitlab-foss/-/raw/14-6-stable/lib/gitlab/ci/templates/Jobs/Code-Quality.gitlab-ci.yml
-
-	code_quality:
-	variables:
-		DOCKER_TLS_CERTDIR: /certs
-	stage: verify
-	rules:
-		- if: $NEXY_CI_STAGE_VERIFY != "1" || $CODE_QUALITY_DISABLED
-		when: never
-		- if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-		- if: $CI_MERGE_REQUEST_IID
-
+	
 	stages {
 		stage ('Build') {
 			steps {
