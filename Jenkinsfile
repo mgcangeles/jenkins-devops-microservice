@@ -1,11 +1,18 @@
 // SCRIPTED, Note: you can remove stage part and leave the echo statements
 pipeline {
 	agent any
+
+	environment {
+		dockerHome = tool 'myDocker'
+		mavneHome = tool 'myMaven'
+		PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
+	}
+
 	stages {
 		stage ('Build') {
 			steps {
-				// sh 'mvn --version'
-				// sh 'node --version'
+				sh 'mvn --version'
+				sh 'node --version'
 				echo "Build"
 				echo "PATH - $PATH"
 				echo "BUILD_NUMBER - $env.BUILD_NUMBER"
